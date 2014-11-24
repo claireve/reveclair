@@ -1,5 +1,5 @@
 <?php ob_start(); 
-include('includes/functions.php');
+include_once('includes/functions.php');
 if (!isset($page_title)) $page_title = 'Reveclair';?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ print '<li>
 <a href="index.php?p=blog">Blog</a>
 </li>
 <li>
-	<a href="logout.php">Logout</a>
+	<a href="index.php?p=logout">Logout</a>
 </li>'
 ;} ?>
 

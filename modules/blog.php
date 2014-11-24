@@ -4,12 +4,14 @@ destroys the session information. */
 
 // Define a page title and include the header:
 define('TITLE', 'Blog');
-include('includes/functions.php');
+include_once('includes/functions.php');
 ?>
 <div class="row">
  <div class='large-9 columns'>
  	<h1>Blog</h1>
-<?php if (! is_administrator() ) { 
+<?php 
+if (is_administrator() ==false) 
+{ 
 	print '<h2>Access Denied!</h2>
 	<p class="error">You do not have permission to access this page.</p>'; 
 	include('templates/footer.php'); exit(); }
@@ -18,7 +20,7 @@ include('includes/functions.php');
  
 
 <?php
-include('includes/mysql_connect.php');
+include(DB);
 $query = 'SELECT * FROM entries ORDER BY date_entered DESC';
  if ($r = mysql_query($query,$dbc)) {
 
@@ -36,12 +38,7 @@ else { // Query didn't run.
 ?>
 </div>
 <div class="large-3 columns">
-<ul class="side-nav">
-	<li><a href="index.php?p=get_category&id=1">Graphisme</a></li>
-	<li><a href="index.php?p=get_category&id=2">Administration</a></li>
-	<li><a href="index.php?p=get_category&id=3">Programmation</a></li>
-	<li><a href="index.php?p=get_category&id=4">Marketing</a></li>
-</ul>
+<?php include('templates/blog_sidenav.html'); ?>
 </div>
 
 

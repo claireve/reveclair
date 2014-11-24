@@ -4,6 +4,7 @@ destroys the session information. */
 
 // Define a page title and include the header:
 define('TITLE', 'Add entry');
+include_once('includes/functions.php');
 ?>
 <div class="row">
  
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 	$problem = FALSE;
 	if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id'])) 
 	{
-		include('includes/mysql_connect.php');
+		include(DB);
 		$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
 		$entry = mysql_real_escape_string(trim(strip_tags($_POST['entry'])), $dbc);
 		$category_id = mysql_real_escape_string(trim(strip_tags($_POST['category_id'])), $dbc);
@@ -53,7 +54,7 @@ mysql_close($dbc);
 <p>Entry Title: <input type="text" name="title" size="40" maxsize="100" /></p>
 <select name="category_id">;
 <?php
- include('includes/mysql_connect.php'); 
+ include(DB); 
 
  //fetch nurse name
  $query = "SELECT id,name FROM Category;";

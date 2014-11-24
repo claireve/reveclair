@@ -12,7 +12,6 @@ destroys the session information. */
 
 // Define a page title and include the header:
 define('TITLE', 'Logout');
-include('templates/header.php');
 
 if (isset($_COOKIE['Samuel'])) { setcookie('Samuel', FALSE,time()-300);
 }	
@@ -23,4 +22,3 @@ if (isset($_COOKIE['Samuel'])) { setcookie('Samuel', FALSE,time()-300);
 <p>Thank you for using this site. We
 hope that you liked it./p>
 
-<?php include('templates/footer.php'); ?>

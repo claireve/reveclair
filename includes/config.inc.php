@@ -15,13 +15,13 @@ if ($local){
 	define('BASE_URI', '/path/to/html/folder/');
 	define('BASE_URL', 'http://local.reveclair.com/');
 	//absolute path on the server to the mysql.inc.php file
-	define('DB', '/path/to/mysql.inc.php');
+	define('DB', '/Users/claireveiniere/Sites/reveclair/includes/mysql_connect.php');
 }
 else {
 	//paths on remote server
 define('BASE_URI', '/path/to/live/html/folder/');
 define('BASE_URL', 'http://www.reveclair.fr/');
-define('DB', '/path/to/live/mysql.inc.php');
+define('DB', '/home/claire/mysql_connect.php');
 }
 //debugging is disabled by default
 if (!isset($debug)) {$debug = FALSE;}

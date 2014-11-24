@@ -14,7 +14,7 @@ if (!is_administrator()) {
 	include('templates/footer.php');
 	exit();
 }
-include('includes/mysql_connect.php');
+include(DB);
 
 if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) ) 
 {

@@ -5,6 +5,7 @@ session_start();
 //the configuration file defines many important things so it should be included first
 require("includes/config.inc.php");
 
+
 //print '<h2>Welcome to the J.D.  ̈ Salinger Fan Club!</h2>'; print '<p>Hello, ' . $_SESSION['email'] . '!</p>';
 error_reporting(E_ALL | E_STRICT);
 
@@ -42,6 +43,10 @@ switch ($p) {
 	case 'login':
 	$page = 'login.php';
 	$page_title = 'Login';
+	break;
+	case 'logout':
+	$page = 'logout.php';
+	$page_title = 'Logout';
 	break;
 	case 'blog':
 	$page = 'blog.php';
