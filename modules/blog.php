@@ -7,26 +7,26 @@ define('TITLE', 'Blog');
 include_once('includes/functions.php');
 ?>
 <div class="row">
- <div class='large-9 columns'>
- 	<h1>Blog</h1>
+ <div class='large-9 columns aside'>
+ 	<h1 class="page-title">Blog</h1><hr/>
 <?php 
 if (is_administrator() ==false) 
 { 
 	print '<h2>Access Denied!</h2>
 	<p class="error">You do not have permission to access this page.</p>'; 
-	include('templates/footer.php'); exit(); }
-	else {
-	 print "<em>Les articles de ce blog sont issus de notre expérience personnelle et d'ouvrages spécialisés.</em>";}?>
- 
+	include('templates/footer.php'); exit(); } ?>
+
 
 <?php
 include(DB);
-$query = 'SELECT * FROM entries ORDER BY date_entered DESC';
+$query = 'SELECT e.title, e.entry, c.name, e.entry_id FROM entries e LEFT JOIN Category c ON e.category_id = c.id ORDER BY e.date_entered DESC';
  if ($r = mysql_query($query,$dbc)) {
 
 	while ($row = mysql_fetch_array($r)) {
 		$entry = nl2br ($row['entry']);
-		print "<div class='panel'><h3>{$row['title']}</h3> {$entry}<br />
+		print "<div class='panel'><h3>{$row['title']} <span style='float:right;' class='label radius'>";
+		if (isset($row['name'])) echo $row['name'];
+		print "</span></h3> {$entry}<br />
 		<a href=\"index.php?p=edit_entry&id={$row['entry_id']}\">Edit</a>
 		<a href=\"delete_entry.php? id={$row['entry_id']}\">Delete</a></div>\n";
 	}

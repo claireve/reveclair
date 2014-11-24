@@ -4,26 +4,28 @@ destroys the session information. */
 
 // Define a page title and include the header:
 define('TITLE', 'Blog');
+include(DB);
 ?>
 <div class="row">
  <div class='large-9 columns'>
- 	<h1>Blog</h1>
-<?php if (! is_administrator() ) { 
-	print '<h2>Access Denied!</h2>
-	<p class="error">You do not have permission to access this page.</p>'; 
-	include('templates/footer.php'); exit(); }
-	else {
-	 print "<em>Les articles de ce blog sont issus de notre expérience personnelle et d'ouvrages spécialisés.</em>";}?>
- 
-
+ 	<h1 class="page-title">Blog - 
 <?php
-include(DB);
+
 $id_category = $_GET['id'];
 $q = 'SELECT c.name FROM Category c WHERE c.id = ' . $id_category .'';
 if ($result= mysql_query($q,$dbc)) {
 	$r1 = mysql_fetch_row($result);
-	print '<h2>'.$r1[0].'</h2>';
-}
+	print $r1[0].'</h1>';
+} ?><hr/>
+
+<?php if (! is_administrator() ) { 
+	print '<h2>Access Denied!</h2>
+	<p class="error">You do not have permission to access this page.</p>'; 
+	include('templates/footer.php'); exit(); }
+?>
+ 
+
+<?php
 $query = 'SELECT e.title, e.entry, e.entry_id, c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE c.id = ' . $id_category .' ORDER BY e.date_entered DESC';
  if ($r = mysql_query($query,$dbc)) {
 
@@ -40,7 +42,7 @@ else { // Query didn't run.
 } // End of query IF.
 ?>
 </div>
-<div class="large-3 columns">
+<div class="large-3 columns menu-aside">
 <?php include('templates/blog_sidenav.html'); ?>
 </div>
 

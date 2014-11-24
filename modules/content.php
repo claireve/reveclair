@@ -13,7 +13,7 @@ if (!defined('BASE_URL'))
 	<div class="large-12 columns">
 		<div class="hide-for-small">
 			<div id="featured">
-				<h1>Des sites modernes, propres et robustes. 
+				<h1 style="text-align:center;">Des sites modernes, propres et robustes. 
 					<?php if (isset($_SESSION['email'])) {print '<p>Hello, ' . $_SESSION['email'] . '!</p>'; } ?></h1>
 				<p><b>Créer</b> des sites propres correspondant à vos besoins selon les technologies et méthodes actuelles
 				 les plus éprouvées : méthode de développement AGILE avec tests et mise en production rapide, frameworks Symfony 2 ou Django.</p>
@@ -30,19 +30,19 @@ if (!defined('BASE_URL'))
 		<div class="row">
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/vo.png">
-				<h6 class="panel">Showroom pour vélos</h6>
+				<h6 class="panel radius">Showroom pour vélos</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/ab.png">
-				<h6 class="panel">Galerie d'art</h6>
+				<h6 class="panel radius">Galerie d'art</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/op.png">
-				<h6 class="panel">Site de recettes</h6>
+				<h6 class="panel radius">Site de recettes</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/pot.png">
-				<h6 class="panel">Site sur le potager</h6>
+				<h6 class="panel radius">Site sur le potager</h6>
 			</div> 
 		</div>
 	</div>
@@ -51,8 +51,8 @@ if (!defined('BASE_URL'))
 <div class="row">
 	<div class="large-12 columns">
 		<div class="row">
-			<div class="large-8 columns">
-				<div class="panel radius">
+			<div class="large-8 columns ">
+				<div class="panel radius border-panel">
 					<div class="row">
 						<div class="large-6 small-6 columns">
 							<h4>Notre petite entreprise</h4>
@@ -78,7 +78,7 @@ if (!defined('BASE_URL'))
 				</div>
 			</div>
 			<div class="large-4 columns hide-for-small">
-				<div class="panel">
+				<div class="panel radius">
 					<h4>Nos compétences</h4>
 					<ul>
 						<li>Programmation web et iOS</li>
