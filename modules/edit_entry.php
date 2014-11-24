@@ -21,7 +21,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) )
 	$query = "SELECT title,entry FROM entries WHERE entry_id={$_GET['id']}";
 	if ($r = mysql_query($query, $dbc)) { $row = mysql_fetch_array($r);
 	print 
-		'<form action="index.php?p=edit_entry" method="post">
+		'<form accept-charset="utf-8" action="index.php?p=edit_entry" method="post">
 		<p><label>Contenu <textarea name="entry" rows="5" cols="30">' . htmlentities($row['entry']) .  '</textarea></label></p>
 		<p><label>Titre <input type="title" name="title" value="' .  htmlentities($row['title']) . '" /></label></p>
 		<input type="hidden" name="id" value="' . $_GET['id'] . '" /> 

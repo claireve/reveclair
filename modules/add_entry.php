@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 mysql_close($dbc);
 } // End of form submission IF. ?>
 
-<form action="index.php?p=add_entry" method="post">
+<form accept-charset="utf-8" action="index.php?p=add_entry" method="post">
 <p>Entry Title: <input type="text" name="title" size="40" maxsize="100" /></p>
 <select name="category_id">;
 <?php
