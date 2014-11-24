@@ -7,7 +7,7 @@ define('TITLE', 'Blog');
 include(DB);
 ?>
 <div class="row">
- <div class='large-9 columns'>
+ <div class='large-9 columns aside'>
  	<h1 class="page-title">Blog - 
 <?php
 

@@ -6,7 +6,7 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 <html> 
 
 <head>
-<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $page_title; ?> | Reveclair </title>
 <link rel="shortcut icon" type="image/x-icon" href="/ressources/images/favicon.ico" />
 <link rel="stylesheet" href="ressources/css/foundation.min.css">
