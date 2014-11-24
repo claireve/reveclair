@@ -22,8 +22,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) )
 	if ($r = mysql_query($query, $dbc)) { $row = mysql_fetch_array($r);
 	print 
 		'<form accept-charset="UTF-8" action="index.php?p=edit_entry" method="post">
-		<p><label>Contenu <textarea name="entry" rows="5" cols="30">' . htmlentities($row['entry']) .  '</textarea></label></p>
-		<p><label>Titre <input type="title" name="title" value="' .  htmlentities($row['title']) . '" /></label></p>
+		<p><label>Contenu <textarea name="entry" rows="5" cols="30">' . htmlspecialchars($row['entry'], ENT_QUOTES, "UTF-8") .  '</textarea></label></p>
+		<p><label>Titre <input type="title" name="title" value="' .  htmlspecialchars($row['title'], ENT_QUOTES, "UTF-8") . '" /></label></p>
 		<input type="hidden" name="id" value="' . $_GET['id'] . '" /> 
 		<p><input type="submit" name="submit" value="Update This Post!" /></p>
 		</form>';
