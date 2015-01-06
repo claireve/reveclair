@@ -1,13 +1,17 @@
 
-
+.description{
+  color:gray;
+  font-family: 'Roboto Condensed';
+}
 .aside{
   border-right:5px solid #FFE902 !important;
 }
+
 .border-panel{
   border-top:5px solid #FFE902 !important;
 }
 .active{
-  background-color:#3A5791 !important;
+  background-color:#00BCF4 !important;
 
 }
 .name a{
@@ -16,7 +20,7 @@
   font-weight:bold;
 }
 .top-bar-section ul li a:hover{
-  background-color:#3A5791 !important;}
+  background-color:#00BCF4 !important;}
 
 
 /*------------------------------------
@@ -123,7 +127,7 @@
   }
 }
 
-textarea {min-height:600px;}
+textarea {min-height:200px;}
 
 h1,h2,h3,h4 {color:#404040; font-family: 'Roboto Condensed';}
 /*a {font-family:'Roboto';}

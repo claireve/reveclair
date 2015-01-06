@@ -86,14 +86,13 @@ if (!defined('BASE_URL'))
 						<li>Management de projet</li>
 						<li>Maintenance et administration</li>
 					</ul>
-					<div class="row">
+<!-- 					<div class="row">
 					  <div class="small-9 large-centered columns">
 					  	<a href="#" data-reveal-id="firstModal" class="radius button">Plus de détails</a>
 					  </div>
-					</div>
-					  <?php include("modal.php"); ?>
+					</div> -->
 				</div>
-				<a href="index.php?p=contact">
+				<a href="/contact">
 					<div class="panel radius callout" style="text-align: center">
 						<strong>Contactez nous !</strong>
 					</div>

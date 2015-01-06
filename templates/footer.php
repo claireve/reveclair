@@ -7,16 +7,14 @@
 
 <p class="copyright">© 2014 REVECLAIR. Tous droits réservés.</p>
 </div>
+</div>
 </footer>
 
-<script src="ressources/js/vendor/jquery.js"></script>
-<script src="ressources/js/foundation/foundation.js"></script>
-<script src="ressources/js/foundation/foundation.reveal.js"></script>
-<script src="ressources/js/foundation/foundation.orbit.js"></script>
-<script type="text/javascript" src="ressources/js/shCore.js"></script>
-<script type="text/javascript" src="ressources/css/sh/shBrushJScript.js"></script>
+<script type="text/javascript" src="/ressources/js/shCore.js"></script>
+<script type="text/javascript" src="/ressources/css/sh/shBrushJScript.js"></script>
 <script>
       $(document).foundation();
+      CKEDITOR.replace('editor1');
       var doc = document.documentElement;
       doc.setAttribute('data-useragent', navigator.userAgent);
       SyntaxHighlighter.all();
@@ -25,4 +23,5 @@
 
 </body>
 </html>
-<?php ob_end_flush();?>
+<?php 
+ob_end_flush();?>

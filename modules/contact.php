@@ -30,7 +30,7 @@
 <p>N'hésitez pas à nous contacter, que ce soit pour un appel à projet, une simple question ou une remarque, ça nous fait toujours plaisir.</p>
 <div class="section-container tabs" data-section>
 <section class="section">
-<h5 class="title"><a href="#panel1">Contactez Reveclair <?php print(MAIL_ADDRESS); ?></a></h5>
+<h5 class="title">Contactez Reveclair <?php print(MAIL_ADDRESS); ?></h5>
 <div class="content" data-slug="panel1">
 <form method="post" target="index.php?p=contact">
 <div class="row collapse">
@@ -59,9 +59,9 @@
 </div>
 
 <label>Décrivez votre entreprise</label>
-<textarea rows="4"></textarea>
+<textarea ></textarea>
 <label>Décrivez le projet pour lequel vous nous contacter</label>
-<textarea name="message" rows="4"></textarea>
+<textarea name="message"></textarea>
 <div class="row collapse">
 	<div class="large-2 columns">
 		<label class="inline"> Quand voulez-vous commencer ?</label>
@@ -86,8 +86,15 @@
 		<input type="text" id="yourCompany">
 	</div>
 </div>
-<label>*What is 2+2? (Anti-spam)</label>
-<input name="human" placeholder="Type Here">
+<div class="row collapse">
+	<div class="large-2 columns">
+<label>Somme de 2+2 ?</label>
+	</div>
+	<div class="large-10 columns">
+<input name="human" placeholder="Résultat">
+	</div>
+</div>
+
 
 
 <input type="submit" name="submit" type="submit" value="Envoyer" class="radius button" />
@@ -99,14 +106,14 @@
  
  
 <div class="large-3 columns"> 
-<p>
+<!-- <p>
 <a href="" data-reveal-id="mapModal"><img src="http://placehold.it/400x280"></a><br/>
 <a href="" data-reveal-id="mapModal">View Map</a>
 </p>
 <p>
 123 Awesome St.<br/>
 Barsoom, MA 95155
-</p>
+</p> -->
 </div>
  
 </div>

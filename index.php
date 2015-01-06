@@ -41,28 +41,40 @@ switch ($p) {
 	$page_title = 'Nouveau post';
 	break;
 	case 'login':
-	$page = 'login.php';
+	$page = 'authentication/login.php';
 	$page_title = 'Login';
 	break;
 	case 'logout':
-	$page = 'logout.php';
+	$page = 'authentication/logout.php';
 	$page_title = 'Logout';
 	break;
 	case 'blog':
-	$page = 'blog.php';
+	$page = 'blog/blog.php';
 	$page_title = 'Blog';
 	break;
 	case 'add_entry':
-	$page = 'add_entry.php';
+	$page = 'blog/add_entry.php';
 	$page_title = 'Ajouter un post';
 	break;
 	case 'edit_entry':
-	$page = 'edit_entry.php';
+	$page = 'blog/edit_entry.php';
 	$page_title = 'Modifier un post';
 	break;
-	case 'get_category':
-	$page = 'get_category.php';
-	$page_title = 'Modifier un post';
+	case 'show_entry':
+	$page = 'blog/show_entry.php';
+	$page_title = 'Afficher un post';
+	break;
+	case 'add_category':
+	$page = 'blog/add_category.php';
+	$page_title = 'Ajouter une catégorie';
+	break;
+	case 'edit_category':
+	$page = 'blog/edit_category.php';
+	$page_title = 'Modifier une catégorie';
+	break;
+	case 'list_category':
+	$page = 'blog/list_category.php';
+	$page_title = 'Liste posts';
 	break;
 	default:
 	$page = 'content.php';
@@ -80,7 +92,6 @@ include("templates/header.php");
 
 //page is determined from the above switch
 include('modules/'.$page);
-
 
 include("templates/footer.php"); 
 
