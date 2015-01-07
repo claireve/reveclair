@@ -16,10 +16,14 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 <link href="/ressources/css/sh/shCore.css" rel="stylesheet" type="text/css" />
 <link href="/ressources/css/sh/shCoreRDark.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="/ressources/css/main.css" type="text/css">
+<link rel="stylesheet" href="/ressources/jquery-ui-1.11.2.custom/jquery-ui.min.css" type="text/css">
 <script src="/ressources/js/vendor/modernizr.js"></script>
 <script src="/ressources/js/vendor/jquery.js"></script>
 <script src="/ressources/js/foundation.min.js"></script>
 <script src="/ressources/ckeditor/ckeditor.js"></script>
+<script src="/ressources/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+<script src="/ressources/jquery-ui-1.11.2.custom/datepicker-fr.js"></script>
+<script src="/ressources/js/jquery-maskedinput.1.4.0.min.js"></script>
 
 </head>
 <body>
@@ -64,7 +68,7 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 				           ?>
 				        </ul>
 				      </li>
-			      <li class="active"><a style="background-color:#00BCF4;"href="contact">Contactez-nous !</a></li>
+			      <li class="active"><a class="contact" href="contact">Contactez-nous !</a></li>
 			    </ul>
 			</section>
 </nav> 

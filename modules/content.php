@@ -30,19 +30,19 @@ if (!defined('BASE_URL'))
 		<div class="row">
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/vo.png">
-				<h6 class="panel radius">Showroom pour vélos</h6>
+				<h6 class="panel radius">E-commerce pour vélos vintage</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/ab.png">
-				<h6 class="panel radius">Galerie d'art</h6>
+				<h6 class="panel radius">E-commerce pour objets de luxe et oeuvres d'art</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/op.png">
-				<h6 class="panel radius">Site de recettes</h6>
+				<h6 class="panel radius">Site de cuisine</h6>
 			</div>
 			<div class="large-3 small-6 columns">
 				<img src="ressources/images/pot.png">
-				<h6 class="panel radius">Site sur le potager</h6>
+				<h6 class="panel radius">Blog sur le potager</h6>
 			</div> 
 		</div>
 	</div>

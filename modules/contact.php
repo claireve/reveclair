@@ -63,28 +63,31 @@
 <label>Décrivez le projet pour lequel vous nous contacter</label>
 <textarea name="message"></textarea>
 <div class="row collapse">
-	<div class="large-2 columns">
+	<div class="large-6 columns">
 		<label class="inline"> Quand voulez-vous commencer ?</label>
 	</div>
-	<div class="large-10 columns">
-		<input type="text" id="yourCompany">
+	<div class="large-6 columns">
+		<input type="text" id="date_start">
 	</div>
 </div>
 <div class="row collapse">
-	<div class="large-2 columns">
+	<div class="large-6 columns">
 		<label class="inline"> Quand le projet doit être fini ?</label>
 	</div>
-	<div class="large-10 columns">
-		<input type="text" id="yourCompany">
+	<div class="large-6 columns">
+		<input type="text" id="date_stop">
 	</div>
 </div>
 <div class="row collapse">
-	<div class="large-2 columns">
+	<div class="large-6 columns">
 		<label class="inline"> Votre budget estimé</label>
 	</div>
-	<div class="large-10 columns">
+	<div class="large-5 columns">
 		<input type="text" id="yourCompany">
 	</div>
+	<div class="small-1 columns">
+          <span class="postfix">€</span>
+        </div>
 </div>
 <div class="row collapse">
 	<div class="large-2 columns">
@@ -117,4 +120,14 @@ Barsoom, MA 95155
 </div>
  
 </div>
+<script>
+$( document ).ready(function() {
+$.datepicker.setDefaults($.datepicker.regional["fr"]);
+$( "#date_start" ).datepicker({dateFormat: 'dd/mm/yy', minDate: 0}, $.datepicker.regional[ "fr" ]);
+$( "#date_stop" ).datepicker({dateFormat: 'dd/mm/yy', minDate: 1}, $.datepicker.regional[ "fr" ]);
+$( "#date_start" ).mask('99/99/9999');
+$( "#date_begin" ).mask('99/99/9999');
+});
+</script>
+
  

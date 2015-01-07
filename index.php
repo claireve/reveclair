@@ -52,6 +52,7 @@ switch ($p) {
 	$page = 'blog/blog.php';
 	$page_title = 'Blog';
 	break;
+	//ENTRIES
 	case 'add_entry':
 	$page = 'blog/add_entry.php';
 	$page_title = 'Ajouter un post';
@@ -60,10 +61,15 @@ switch ($p) {
 	$page = 'blog/edit_entry.php';
 	$page_title = 'Modifier un post';
 	break;
+	case 'delete_entry':
+	$page = 'blog/delete_entry.php';
+	$page_title = 'Supprimer un post';
+	break;
 	case 'show_entry':
 	$page = 'blog/show_entry.php';
 	$page_title = 'Afficher un post';
 	break;
+	//CATEGORIES
 	case 'add_category':
 	$page = 'blog/add_category.php';
 	$page_title = 'Ajouter une catégorie';

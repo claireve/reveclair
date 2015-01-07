@@ -6,21 +6,45 @@
 .aside{
   border-right:5px solid #FFE902 !important;
 }
+.side-nav li a.activeside {
+  background:none repeat scroll 0 0 rgba(0,0,0,0.024);
+  color:#1cc7ff;}
 
 .border-panel{
   border-top:5px solid #FFE902 !important;
 }
 .active{
   background-color:#00BCF4 !important;
-
 }
+.panel{
+  border:none;
+}
+.single-post{
+background-color: #F7ECDA !important;
+}
+.multiple-post p{
+  font-size:0.89rem;
+  line-height: 1.3;
+}
+.single-post p{
+  font-size:0.92rem;
+  line-height:1.3;
+}
+.single-post h1 {
+  font-size:2rem;
+}
+.panel.callout{
+  border:none;
+}
+h3{font-size:1.4rem !important;}
 .name a{
 
   font-size:20px;
   font-weight:bold;
 }
 .top-bar-section ul li a:hover{
-  background-color:#00BCF4 !important;}
+  background-color:#00BCF4 !important;
+  }
 
 
 /*------------------------------------
@@ -134,6 +158,8 @@ h1,h2,h3,h4 {color:#404040; font-family: 'Roboto Condensed';}
 */
 .top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
     background-color: #6699FF;
+    font-family:'Roboto';
+    font-size:14px;
 }
 .top-bar{
        border-bottom:5px solid #00BCF4;
@@ -170,6 +196,13 @@ footer
   padding: 50px 0 10px;
   font-family: Roboto Condensed;
 
+}
+
+.contact{
+  background-color:#00BCF4 !important;
+  font-weight:bold !important;
+  font-family: 'Roboto Condensed' !important;
+  font-size:20px !important;
 }
 
 .page-title{

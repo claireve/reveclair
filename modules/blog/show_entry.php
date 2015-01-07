@@ -13,7 +13,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) )
 	if ($r = mysql_query($query, $dbc)) { $row = mysql_fetch_array($r);
 
 
-print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel\'><h2>'.$row[0].'</h2>'.$row[1].'</div>';
+print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel single-post\'><h1>'.$row[0].'</h1><p>'.$row[1].'</p></div>';
 }
 }
 ?>

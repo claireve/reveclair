@@ -14,7 +14,7 @@
 <script type="text/javascript" src="/ressources/css/sh/shBrushJScript.js"></script>
 <script>
       $(document).foundation();
-      CKEDITOR.replace('editor1');
+      // CKEDITOR.replace('editor1');
       var doc = document.documentElement;
       doc.setAttribute('data-useragent', navigator.userAgent);
       SyntaxHighlighter.all();

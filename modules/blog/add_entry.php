@@ -22,18 +22,20 @@ include_once('includes/functions.php');
 		<?php
 		if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 			$problem = FALSE;
-			if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id'])) {
+			if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id']) && isset($_POST['is_public'])) {
 				include(DB);
 				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
 				$entry = $_POST['entry'];
 				$category_id = mysql_real_escape_string(trim(strip_tags($_POST['category_id'])), $dbc);
+				$isPublic = $_POST['is_public'];
+
 			}
 			else {
-				print '<p style="color:red;">Please submit both a title and an entry.</p>'; 
+				print '<p class="error">Please submit both a title and an entry and public.</p>'; 
 				$problem = TRUE;
 			}
 			if (!$problem) {
-				$query = "INSERT INTO entries (entry_id, title, entry, category_id, date_entered) VALUES (0, '$title', '$entry', '$category_id', NOW())";
+				$query = "INSERT INTO entries (entry_id, title, entry, category_id, isPublic, date_entered) VALUES (0, '$title', '$entry', '$category_id', '$isPublic', NOW())";
 			}
 			if (@mysql_query($query, $dbc)) { 
 				print '<p>The blog entry has been added!</p>';
@@ -63,7 +65,12 @@ include_once('includes/functions.php');
 			 echo "</select>";
 			?>
 			<p>Entry Text: <textarea id="editor1" name="entry" cols="40" rows="5"></textarea></p>
-			<input type="submit" name=  ̈"submit" value="Post This Entry!" />
+			<p>Public ?
+	      <input type="radio" name="is_public" value="1" id="isPublicTrue"><label for="isPublicTrue">Oui</label>
+	      <input type="radio" name="is_public" value="0" id="isPublicFalse"><label for="isPublicFalse">Non</label>
+	    </p>
+
+			<input type="submit" name="submit" value="Post This Entry!" />
 		</form>
 	</div>
 </div>
