@@ -1,23 +1,23 @@
 <?php // Script 13.9 -edit_quote.php
-define('TITLE', 'Afficher un post');?>
-
+define('TITLE', 'fd');
+require_once 'ressources/php_markdown_lib_1.4.1/Michelf/Markdown.inc.php';?>
   <div class="row">
     <div class="large-9 columns aside">
 
 <?php 
 include(DB);
-
-if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) ) 
+if (isset($_GET['slug']) && ($_GET['slug'] != null)) 
 {
-	$query = "SELECT e.title,e.entry,c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE entry_id={$_GET['id']}";
-	if ($r = mysql_query($query, $dbc)) { $row = mysql_fetch_array($r);
-
-
-print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel single-post\'><h1>'.$row[0].'</h1><p>'.$row[1].'</p></div>';
-}
+    echo $_GET['slug'];
+	$query = "SELECT e.title,e.entry,c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE e.slug='{$_GET['slug']}'";
+	if ($r = mysql_query($query, $dbc)) { 
+        $row = mysql_fetch_array($r);
+        $text = \Michelf\Markdown::defaultTransform($row[1]);
+        print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel single-post\'><h1>'.$row[0].'</h1><p>'.$text.'</p></div>';
+    }
+    else echo 'bla';
 }
 ?>
-
 <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

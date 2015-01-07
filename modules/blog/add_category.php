@@ -12,7 +12,8 @@ include_once('includes/functions.php');
 
 <h1>Add a Category for this blog</h1>
 
-<?php if (! is_administrator() ) { print '<h2>Access Denied!</h2>
+<?php
+if (!isset($_SESSION['valid_user'])) { print '<h2>Access Denied!</h2>
 <p class="error">You do not have permission to access this page.</p>'; 
 include('templates/footer.php'); exit(); }
 
@@ -24,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 		include(DB);
 		$category_name = mysql_real_escape_string(trim(strip_tags($_POST['category_name'])), $dbc);
 		$description = mysql_real_escape_string(trim(strip_tags($_POST['description'])), $dbc);
+		$slug = slugify($category_name);
 	}
 	else 
 	{
@@ -31,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 		$problem = TRUE;
 	}
 
-	if (!$problem) {$query = "INSERT INTO Category (name, description) VALUES ('$category_name', '$description')";}
+	if (!$problem) {$query = "INSERT INTO Category (name, description, slug) VALUES ('$category_name', '$description', '$slug')";}
 	
 	if (@mysql_query($query, $dbc)) { print '<p>The category has been added!</p>';} 
 	

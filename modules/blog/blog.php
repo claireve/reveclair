@@ -13,7 +13,7 @@ require_once 'ressources/php_markdown_lib_1.4.1/Michelf/Markdown.inc.php';?>
 
 <?php
 include(DB);
-$query = 'SELECT e.title, e.entry, c.name, e.entry_id, e.isPublic, e.date_entered FROM entries e LEFT JOIN Category c ON e.category_id = c.id ORDER BY e.date_entered DESC';
+$query = 'SELECT e.title, e.entry, c.name, e.entry_id, e.isPublic, e.date_entered, e.slug FROM entries e LEFT JOIN Category c ON e.category_id = c.id ORDER BY e.date_entered DESC';
  if ($r = mysql_query($query,$dbc)) {
 
 	while ($row = mysql_fetch_array($r)) {
@@ -23,12 +23,13 @@ $query = 'SELECT e.title, e.entry, c.name, e.entry_id, e.isPublic, e.date_entere
 			$format = 'Y-m-d H:i:s';
 			$date_entry = date_create_from_format($format, $row['date_entered']);
 			// echo $date_entry->format('d/m/Y');
-			print "<div class='panel multiple-post'>
+			$name = strtoupper($row['name']);
+			if (isset($row['name'])) echo "<div class='ribbon'><div class='ribbon-stitches-top'></div><strong class='ribbon-content'><h1>{$name}</h1></strong><div class='ribbon-stitches-bottom'></div></div>";
+			print "
+			<div class='panel multiple-post'>
 					<h3>
-						<a href=\"/posts/{$row['entry_id']}\">{$row['title']}</a><span style='float:right;' class='label radius'>";
-			if (isset($row['name'])) echo $row['name'];
-			if ($row['isPublic'] == 0) echo ' PRIVE';
-			print "</span></h3>".$date_entry->format('d/m/Y').$entry;
+						<a href=\"/posts/{$row['slug']}\">{$row['title']}</a>";
+			print "</h3>".$date_entry->format('d/m/Y').$entry;
 			if (isset($_SESSION['valid_user'])) {
 				print "<a href=\"/index.php?p=edit_entry&id={$row['entry_id']}\">Edit</a>
 					  <a href=\"/index.php?p=delete_entry&id={$row['entry_id']}\">Delete</a></div>\n";
@@ -39,7 +40,7 @@ $query = 'SELECT e.title, e.entry, c.name, e.entry_id, e.isPublic, e.date_entere
 				$entry = \Michelf\Markdown::defaultTransform($row['entry']);
 				print "<div class='panel'>
 						<h3>
-							<a href=\"/posts/{$row['entry_id']}\">{$row['title']}</a><span style='float:right;' class='label radius'>";
+							<a href=\"/posts/{$row['slug']}\">{$row['title']}</a><span style='float:right;' class='label radius'>";
 				if (isset($row['name'])) echo $row['name'];
 				if ($row['isPublic'] == 0) echo ' PRIVE';
 				print "</span></h3> {$entry}<br />

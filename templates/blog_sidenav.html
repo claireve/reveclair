@@ -1,12 +1,12 @@
 <ul class="side-nav">
 
 <?php
-$q = 'SELECT c.name, c.id FROM Category c ORDER BY c.name';
+$q = 'SELECT c.name, c.id, c.slug FROM Category c ORDER BY c.name';
 if ($result= mysql_query($q,$dbc)) {
 	while ($r1 = mysql_fetch_assoc($result))
 	{ 
-		if (false !== strpos($url,'category/'.$r1['id']))
-		{ echo "<li><a class='activeside' href=\"/category/".$r1['id']."\">".$r1['name']."</a></li>"; }
-		else { echo "<li><a href=\"/category/".$r1['id']."\">".$r1['name']."</a></li>"; }}
+		if (false !== strpos($url,'category/'.$r1['slug']))
+		{ echo "<li><a class='activeside' href=\"/category/".$r1['slug']."\">".$r1['name']."</a></li>"; }
+		else { echo "<li><a href=\"/category/".$r1['slug']."\">".$r1['name']."</a></li>"; }}
 } ?>
 </ul>

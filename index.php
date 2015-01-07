@@ -22,11 +22,11 @@ else { $p = NULL;}
 switch ($p) {
 	case 'contact':
 	$page = 'contact.php';
-	$page_title = 'Contact | Reveclair';
+	$page_title = 'Contact';
 	break;
 	case 'team':
 	$page = 'team.php';
-	$page_title = 'Equipe | Reveclair';
+	$page_title = 'Equipe';
 	break;
 	case 'work':
 	$page = 'work.php';
@@ -67,7 +67,7 @@ switch ($p) {
 	break;
 	case 'show_entry':
 	$page = 'blog/show_entry.php';
-	$page_title = 'Afficher un post';
+	$page_title = 'Post';
 	break;
 	//CATEGORIES
 	case 'add_category':

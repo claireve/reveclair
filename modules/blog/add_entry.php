@@ -28,6 +28,9 @@ include_once('includes/functions.php');
 				$entry = $_POST['entry'];
 				$category_id = mysql_real_escape_string(trim(strip_tags($_POST['category_id'])), $dbc);
 				$isPublic = $_POST['is_public'];
+				$slug = slugify($title);
+				// echo $slug;
+				// die();
 
 			}
 			else {
@@ -35,7 +38,7 @@ include_once('includes/functions.php');
 				$problem = TRUE;
 			}
 			if (!$problem) {
-				$query = "INSERT INTO entries (entry_id, title, entry, category_id, isPublic, date_entered) VALUES (0, '$title', '$entry', '$category_id', '$isPublic', NOW())";
+				$query = "INSERT INTO entries (entry_id, title, entry, category_id, isPublic, date_entered, slug) VALUES (0, '$title', '$entry', '$category_id', '$isPublic', NOW(), '$slug')";
 			}
 			if (@mysql_query($query, $dbc)) { 
 				print '<p>The blog entry has been added!</p>';

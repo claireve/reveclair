@@ -61,14 +61,14 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 				 <li class="has-dropdown">
 				        <a href="#">Admin</a>
 				        <ul class="dropdown">
-				          <li><a href="index.php?p=add_category">Ajouter une catégorie</a></li>
-				          <li><a href="index.php?p=add_entry">Ajouter un post</a></li>
+				          <li><a href="/index.php?p=add_category">Ajouter une catégorie</a></li>
+				          <li><a href="/index.php?p=add_entry">Ajouter un post</a></li>
 				          <?php if (isset($_GET['id']))
-				           echo '<li><a href="index.php?p=edit_category">Modifier la catégorie</a></li>';
+				           echo '<li><a href="/index.php?p=edit_category">Modifier la catégorie</a></li>';
 				           ?>
 				        </ul>
 				      </li>
-			      <li class="active"><a class="contact" href="contact">Contactez-nous !</a></li>
+			      <li class="active"><a class="contact" href="/contact">Contactez-nous !</a></li>
 			    </ul>
 			</section>
 </nav> 

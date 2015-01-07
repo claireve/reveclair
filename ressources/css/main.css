@@ -209,3 +209,71 @@ footer
   text-align:center !important;
   font-family: Wire One !important;
 }
+
+.ribbon {
+   width: 200px;
+   position: relative;
+   float:right;
+   text-align: center;
+   font-size: 15px!important;
+   background: #00bbf4;
+   background: -webkit-gradient(linear, left top, left bottom, from(#00bbf4), to(#6699ff));
+   background: -webkit-linear-gradient(top, #00bbf4, #6699ff);
+   background: -moz-linear-gradient(top, #00bbf4, #6699ff);
+   background: -ms-linear-gradient(top, #00bbf4, #6699ff);
+   background: -o-linear-gradient(top, #00bbf4, #6699ff);
+   background-image: -ms-linear-gradient(top, #00bbf4 0%, #6699ff 100%);
+   -webkit-box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   -moz-box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   font-family: 'Helvetica Neue',Helvetica, sans-serif;
+   }
+.ribbon h1 {
+   font-size: 15px!important;
+   color: #ffffff;
+   margin:0px;
+   padding: 5px 5px;
+   }
+.ribbon:before, .ribbon:after {
+   content: '';
+   position: absolute;
+   display: block;
+   bottom: -0.5em;
+   border: 0.9em solid #39F1AE;
+   z-index: -1;
+   }
+.ribbon:before {
+   left: -2em;
+   border-right-width: 1.5em;
+   border-left-color: transparent;
+   -webkit-box-shadow: rgba(000,000,000,0.4) 1px 1px 1px;
+   -moz-box-shadow: rgba(000,000,000,0.4) 1px 1px 1px;
+   box-shadow: rgba(000,000,000,0.4) 1px 1px 1px;
+   }
+.ribbon:after {
+   right: -2em;
+   border-left-width: 1.5em;
+   border-right-color: transparent;
+   -webkit-box-shadow: rgba(000,000,000,0.4) -1px 1px 1px;
+   -moz-box-shadow: rgba(000,000,000,0.4) -1px 1px 1px;
+   box-shadow: rgba(000,000,000,0.4) -1px 1px 1px;
+   position:absolute;
+   z-index: -1;
+   }
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+/*   border-color: #474646 transparent transparent transparent;
+*/   position: absolute;
+   display: block;
+/*   border-style: solid;
+*/   bottom: -1em;
+   content: '';
+   }
+.ribbon .ribbon-content:before {
+   left: 0;
+   border-width: 1em 0 0 1em;
+   }
+.ribbon .ribbon-content:after {
+   right: 0;
+   border-width: 1em 1em 0 0;
+   }
+

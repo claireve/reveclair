@@ -11,8 +11,7 @@ include(DB);
  	<h1 class="page-title">Blog - 
 <?php
 
-$id_category = $_GET['id'];
-$q = 'SELECT c.name, c.description FROM Category c WHERE c.id = ' . $id_category .'';
+$q = "SELECT c.name, c.description, c.slug FROM Category c WHERE c.slug = '{$_GET['slug']}'";
 if ($result= mysql_query($q,$dbc)) {
 	$r1 = mysql_fetch_row($result);
 	print $r1[0].'</h1>';
@@ -22,12 +21,12 @@ if ($result= mysql_query($q,$dbc)) {
 	echo '<p class="description">'.$r1[1].'</p><hr/>';
 ?>
 <?php
-$query = 'SELECT e.title, e.entry, e.entry_id, c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE c.id = ' . $id_category .' ORDER BY e.date_entered DESC';
+$query = "SELECT e.title, e.entry, e.entry_id, e.slug, c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE c.slug = '{$_GET['slug']}' ORDER BY e.date_entered DESC";
  if ($r = mysql_query($query,$dbc)) {
 
 	while ($row = mysql_fetch_array($r)) {
 		$entry = nl2br ($row['entry']);
-		print "<div class='panel'><h3><a href=\"/posts/{$row['entry_id']}\">{$row['title']}</a></h3> {$entry}<br />
+		print "<div class='panel'><h3><a href=\"/posts/{$row['slug']}\">{$row['title']}</a></h3> {$entry}<br />
 		<a href=\"index.php?p=edit_entry&id={$row['entry_id']}\">Edit</a>
 		<a href=\"delete_entry.php? id={$row['entry_id']}\">Delete</a></div>\n";
 	}
