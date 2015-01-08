@@ -49,7 +49,9 @@ include_once('includes/functions.php');
 		 	$problem = FALSE;
 			if ( !empty($_POST['title']) &&  !empty($_POST['entry']) &&  !isset($_POST['isPublic']) ) {
 				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
-				$entry = $_POST['entry'];
+				if (!get_magic_quotes_gpc())
+					{ $entry = addslashes($_POST['entry']); }
+				else { $entry = $_POST['entry'];}
 				$isPublic = $_POST['is_public'];
 				$slug = slugify($title);
 			}

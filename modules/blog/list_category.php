@@ -11,13 +11,13 @@ include(DB);
 <div class="wrapper">
 <div class="row">
  <div class='large-9 columns aside'>
- 	<h1 class="page-title">Blog - 
+ 	<h4 class="page-title">Blog - 
 <?php
 
 $q = "SELECT c.name, c.description, c.slug, c.id FROM Category c WHERE c.slug = '{$_GET['slug']}'";
 if ($result= mysql_query($q,$dbc)) {
 	$r1 = mysql_fetch_row($result);
-	print $r1[0].'</h1>';
+	print $r1[0].'</h4>';
 } ?><hr/>
 
 <?php 
@@ -37,9 +37,9 @@ $query = "SELECT e.title, e.entry, e.entry_id, e.slug, e.isPublic, e.date_entere
 			if (isset($row['name'])) echo "<div class='ribbon'><div class='ribbon-stitches-top'></div><strong class='ribbon-content'><h1>{$name}</h1></strong><div class='ribbon-stitches-bottom'></div></div>";
 			print "
 			<div class='panel multiple-post'>
-					<h3>
+					<h1>
 						<a href=\"/posts/{$row['slug']}\">{$row['title']}</a>";
-			print "</h3>".$date_entry->format('d/m/Y').$entry;
+			print "</h1>".$date_entry->format('d/m/Y').$entry;
 			if (isset($_SESSION['valid_user'])) {
 				print "<a href=\"/index.php?p=edit_entry&id={$row['entry_id']}\">Edit</a>
 					  <a href=\"/index.php?p=delete_entry&id={$row['entry_id']}\">Delete</a></div>\n";

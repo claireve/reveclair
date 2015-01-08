@@ -25,7 +25,9 @@ include_once('includes/functions.php');
 			if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id']) && isset($_POST['is_public'])) {
 				include(DB);
 				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
-				$entry = $_POST['entry'];
+				if (!get_magic_quotes_gpc())
+					{ $entry = addslashes($_POST['entry']); }
+				else { $entry = $_POST['entry'];}
 				$category_id = mysql_real_escape_string(trim(strip_tags($_POST['category_id'])), $dbc);
 				$isPublic = $_POST['is_public'];
 				$slug = slugify($title);

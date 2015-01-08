@@ -35,24 +35,34 @@
 .panel{
   border:none;
 }
-.single-post{
-background-color: #F7ECDA !important;
-}
+
 .multiple-post p{
   font-size:0.89rem;
+  line-height: 1.3;
+}
+.multiple-post ul, .multiple-post ol, .single-post ul, .single-post ol {
+  font-size:0.9rem;
   line-height: 1.3;
 }
 .single-post p{
   font-size:0.92rem;
   line-height:1.3;
 }
-.single-post h1 {
-  font-size:2rem;
+
+.single-post h1, .multiple-post h1 {
+  font-size:1.7rem;
 }
+.single-post h2, .multiple-post h2 {
+  font-size: 1.3rem
+}
+.single-post h3, .multiple-post h3 {
+  font-size: 1.2rem
+}
+
 .panel.callout{
   border:none;
 }
-h3{font-size:1.4rem !important;}
+h3{font-size:1.4rem;}
 .name a{
 
   font-size:20px;
@@ -224,6 +234,7 @@ footer
 .page-title{
   text-align:center !important;
   font-family: Wire One !important;
+  font-size:3rem;
 }
 
 .success{
