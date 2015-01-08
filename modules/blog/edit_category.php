@@ -1,5 +1,7 @@
 <?php // Script 13.9 -edit_quote.php
 define('TITLE', 'Modifier une catégorie');
+include_once('includes/functions.php');
+
 ?>
   <div class="row">
     <div class="large-9 columns">
@@ -32,20 +34,20 @@ define('TITLE', 'Modifier une catégorie');
 		} 
 		elseif (isset($_POST['id']) && is_numeric($_POST['id']) && ($_POST['id'] > 0)) {
 		 	$problem = FALSE;
-			if ( !empty($_POST['title']) &&  !empty($_POST['entry']) ) {
-				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
-				$entry = $_POST['entry'];
-				$isPublic = $_POST['is_public'];
+			if ( !empty($_POST['name']) &&  !empty($_POST['description']) ) {
+				$name = mysql_real_escape_string(trim(strip_tags($_POST['name'])), $dbc);
+				$description = mysql_real_escape_string(trim(strip_tags($_POST['description'])), $dbc);
+				$slug = slugify($name);
 			}
 			else {
-				print '<p class="error">Please submit both a title and a content.</p>';
+				print '<p class="error">Please submit both a name and a description.</p>';
 				$problem = TRUE;
 			}
 			if (!$problem) {
-				$query = "UPDATE entries SET title='$title', entry='$entry' WHERE entry_id={$_POST['id']}";
+				$query = "UPDATE Category SET name='$name', description='$description', slug='$slug' WHERE id={$_POST['id']}";
 				if ($r = mysql_query($query, $dbc)) {
-					print '<p>The quotation has been updated.</p>'; }
-				else { print '<p class="error">Could not update the quotation because:<br />' . mysql_error($dbc) . 
+					print '<p>The category has been updated.</p>'; }
+				else { print '<p class="error">Could not update the category because:<br />' . mysql_error($dbc) . 
 					'.</p><p>The query being run was: ' .  $query . '</p>';
 				}
 			} // No problem!

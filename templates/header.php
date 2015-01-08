@@ -24,7 +24,7 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 <script src="/ressources/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
 <script src="/ressources/jquery-ui-1.11.2.custom/datepicker-fr.js"></script>
 <script src="/ressources/js/jquery-maskedinput.1.4.0.min.js"></script>
-
+<script src="/ressources/js/jquery.validate.min.js"></script>
 </head>
 <body>
 	<div class="sticky">
@@ -58,16 +58,15 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 				</ul>
 			    <!-- Right Nav Section -->
 			    <ul class="right">
+			    <?php if (isset($_SESSION['valid_user'])): ?>
 				 <li class="has-dropdown">
 				        <a href="#">Admin</a>
 				        <ul class="dropdown">
 				          <li><a href="/index.php?p=add_category">Ajouter une catégorie</a></li>
 				          <li><a href="/index.php?p=add_entry">Ajouter un post</a></li>
-				          <?php if (isset($_GET['id']))
-				           echo '<li><a href="/index.php?p=edit_category">Modifier la catégorie</a></li>';
-				           ?>
 				        </ul>
 				      </li>
+				 <?php endif; ?>
 			      <li class="active"><a class="contact" href="/contact">Contactez-nous !</a></li>
 			    </ul>
 			</section>

@@ -1,4 +1,20 @@
 
+    * {
+    margin: 0;
+    }
+    html, body {
+    height: 100%;
+    }
+    .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+    }
+    footer, .push {
+    height: 7em;
+    }
+
 .description{
   color:gray;
   font-family: 'Roboto Condensed';
@@ -208,6 +224,14 @@ footer
 .page-title{
   text-align:center !important;
   font-family: Wire One !important;
+}
+
+.success{
+  background-color: #39F1AE;
+  color:white;
+  font-family: 'Roboto Condensed';
+  padding:10px;
+  text-align: center;
 }
 
 .ribbon {
