@@ -5,7 +5,7 @@
 </div>
 <div class="medium-8 medium-8 pull-4 columns">
 
-<p class="copyright">© 2014 REVECLAIR. Tous droits réservés.</p>
+<p class="copyright">© 2014-2015 REVECLAIR. Tous droits réservés.</p>
 </div>
 </div>
 </footer>
