@@ -1,15 +1,13 @@
 <?php #Script 2.1 - config.inc.php
 
-
 $contact_email = "contact@reveclair.fr";
-
 
 //determine whether the script is running on the live server or a test server
 $host = substr($_SERVER['HTTP_HOST'], 0, 5);
-if (in_array($host, array('local', '127.0', '192.1')))
-{$local = true;}
+if (in_array($host, array('local', '127.0', '192.1'))) {$local = true;}
 else {$local = false;}
-if ($local){
+//SI LOCAL
+if ($local) {
 	$debug = true;
 	//the BASE_URI is the absolute file system path to where the site's root folder is on the server
 	define('BASE_URI', '/path/to/html/folder/');
@@ -17,11 +15,12 @@ if ($local){
 	//absolute path on the server to the mysql.inc.php file
 	define('DB', '/Users/claireveiniere/Sites/reveclair/includes/mysql_connect.php');
 }
+//SI PROD
 else {
 	//paths on remote server
-define('BASE_URI', '/path/to/live/html/folder/');
-define('BASE_URL', 'http://www.reveclair.fr/');
-define('DB', '/home/claire/mysql_connect.php');
+	define('BASE_URI', '/path/to/live/html/folder/');
+	define('BASE_URL', 'http://www.reveclair.fr/');
+	define('DB', '/home/claire/mysql_connect.php');
 }
 //debugging is disabled by default
 if (!isset($debug)) {$debug = FALSE;}

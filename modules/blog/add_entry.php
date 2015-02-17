@@ -24,11 +24,11 @@ include_once('includes/functions.php');
 			$problem = FALSE;
 			if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id']) && isset($_POST['is_public'])) {
 				include(DB);
-				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
+				$title = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['title'])), $dbc);
 				if (!get_magic_quotes_gpc())
 					{ $entry = addslashes($_POST['entry']); }
 				else { $entry = $_POST['entry'];}
-				$category_id = mysql_real_escape_string(trim(strip_tags($_POST['category_id'])), $dbc);
+				$category_id = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['category_id'])), $dbc);
 				$isPublic = $_POST['is_public'];
 				$slug = slugify($title);
 				// echo $slug;
@@ -42,16 +42,19 @@ include_once('includes/functions.php');
 			if (!$problem) {
 				$query = "INSERT INTO entries (entry_id, title, entry, category_id, isPublic, date_entered, slug) VALUES (0, '$title', '$entry', '$category_id', '$isPublic', NOW(), '$slug')";
 			}
-			if (@mysql_query($query, $dbc)) { 
+			if (@mysqli_query($dbc, $query)) { 
 				print '<p>The blog entry has been added!</p>';
+				$url = BASE_URL . 'index.php';
+				header ("Location: $url");
+				exit;
 			} 
 			else { 
-				print ' <p style="color: red;"> Could not add the entry because:<br />' . mysql_error($dbc) . '.</p>
+				print ' <p style="color: red;"> Could not add the entry because:<br />' . mysqli_error($dbc) . '.</p>
 						<p>The query being run 
 						was: ' .  $query . '</p>';
 			}
 			// No problem!
-			mysql_close($dbc);
+			mysqli_close($dbc);
 		}
 		// End of form submission IF. 
 		?>
@@ -62,9 +65,9 @@ include_once('includes/functions.php');
 			 include(DB); 
 			 //fetch nurse name
 			 $query = "SELECT id,name FROM Category;";
-			 $result = mysql_query($query) or die(mysql_error()); //note: use mysql_error() for development only
+			 $result = mysqli_query($query) or die(mysql_error()); //note: use mysql_error() for development only
 			 //print results
-			 while($row = mysql_fetch_assoc($result)) {
+			 while($row = mysqli_fetch_assoc($result)) {
 			 	echo '<option   value='.$row['id'].'>'.$row['name'].'</option>';
 			 }
 			 echo "</select>";

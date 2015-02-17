@@ -1,9 +1,10 @@
 <ul class="side-nav">
 
 <?php
+include(DB);
 $q = 'SELECT c.name, c.id, c.slug FROM Category c ORDER BY c.name';
-if ($result= mysql_query($q,$dbc)) {
-	while ($r1 = mysql_fetch_assoc($result))
+if ($result= mysqli_query($dbc, $q)) {
+	while ($r1 = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{ 
 		if (false !== strpos($url,'category/'.$r1['slug']))
 		{ echo "<li><a class='activeside' href=\"/category/".$r1['slug']."\">".$r1['name']."</a></li>"; }

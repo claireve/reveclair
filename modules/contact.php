@@ -63,9 +63,9 @@
 	</div>
 </div>
 
-<label>Décrivez votre entreprise</label>
+<label>Décrivez votre entreprise </label>
 <textarea name="company_description" ></textarea>
-<label>Décrivez le projet pour lequel vous nous contacter</label>
+<label>Décrivez le projet pour lequel vous nous contacter <small>Requis</small></label>
 <textarea name="message"></textarea>
 <div class="row collapse">
 	<div class="large-6 columns">
@@ -88,7 +88,7 @@
 		<label class="inline"> Votre budget estimé</label>
 	</div>
 	<div class="large-5 columns">
-		<input name="budget" type="text">
+		<input id="budget" name="budget" type="text">
 	</div>
 	<div class="small-1 columns">
           <span class="postfix">€</span>
@@ -96,7 +96,7 @@
 </div>
 <div class="row collapse">
 	<div class="large-2 columns">
-<label>Somme de 2+2 ?</label>
+<label>Somme de 2+2 ? (vérification anti-spam)</label>
 	</div>
 	<div class="large-10 columns">
 <input name="human" placeholder="Résultat">
@@ -149,8 +149,9 @@ $("#contactForm").validate({
 $.datepicker.setDefaults($.datepicker.regional["fr"]);
 $( "#date_start" ).datepicker({dateFormat: 'dd/mm/yy', minDate: 0}, $.datepicker.regional[ "fr" ]);
 $( "#date_stop" ).datepicker({dateFormat: 'dd/mm/yy', minDate: 1}, $.datepicker.regional[ "fr" ]);
-$( "#date_start" ).mask('99/99/9999');
-$( "#date_begin" ).mask('99/99/9999');
+// $( "#date_start" ).mask('99/99/9999');
+// $( "#date_begin" ).mask('99/99/9999');
+
 });
 </script>
 

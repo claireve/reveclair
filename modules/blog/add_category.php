@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 	if (!empty($_POST['category_name']) && !empty($_POST['description'])) 
 	{
 		include(DB);
-		$category_name = mysql_real_escape_string(trim(strip_tags($_POST['category_name'])), $dbc);
-		$description = mysql_real_escape_string(trim(strip_tags($_POST['description'])), $dbc);
+		$category_name = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['category_name'])));
+		$description = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['description'])));
 		$slug = slugify($category_name);
 	}
 	else 
@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
 
 	if (!$problem) {$query = "INSERT INTO Category (name, description, slug) VALUES ('$category_name', '$description', '$slug')";}
 	
-	if (@mysql_query($query, $dbc)) { print '<p>The category has been added!</p>';} 
+	if (@mysqli_query($dbc,$query)) { print '<p>The category has been added!</p>';} 
 	
-	else { print '<p style="color: red;"> Could not add the category because:<br />' . mysql_error($dbc) . '.</p>
+	else { print '<p style="color: red;"> Could not add the category because:<br />' . mysqli_error($dbc) . '.</p>
 	<p>The query being run 
 	was: ' .  $query . '</p>';} // No problem!
-mysql_close($dbc);
+	mysqli_close($dbc);
 } // End of form submission IF. ?>
 
 

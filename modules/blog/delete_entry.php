@@ -20,8 +20,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0)) {
 	// Display the quote in a form
 	// Define the query:
 	$query = "SELECT title FROM entries WHERE entry_id={$_GET['id']}";
-	if ($r = mysql_query($query, $dbc)) { // Run the query.
-		$row = mysql_fetch_array($r); // Retrieve the information. 
+	if ($r = mysqli_query($dbc, $query)) { // Run the query.
+		$row = mysqli_fetch_array($r, MYSQLI_ASSOC); // Retrieve the information. 
 		// Make the form:
 		print 	'<form action="index.php?p=delete_entry" method="post">
 				<p>Are you sure you want to delete this post?</p>
@@ -38,20 +38,20 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0)) {
 elseif (isset($_POST['id']) && is_numeric($_POST['id']) && ($_POST['id'] > 0) ) { // Handle the form.
 	// Define the query:
 	$query = "DELETE FROM entries WHERE entry_id={$_POST['id']} LIMIT 1";
-	$r = mysql_query($query, $dbc); // Execute the query. 51
+	$r = mysqli_query($dbc, $query); // Execute the query. 51
 	// Report on the result:
-	if (mysql_affected_rows($dbc) == 1) {
+	if (mysqli_affected_rows($dbc) == 1) {
 		print '<p>The post has been deleted.</p>';	
 	}
 	else {
-		print '<p class="error">Could not delete the blog entry because:<br />' . mysql_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
+		print '<p class="error">Could not delete the blog entry because:<br />' . mysqli_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
 	}
 }
 else { // No ID received.
 	print '<p class="error">This page has been accessed in error.</p>';
 } // End of main IF.
 
-mysql_close($dbc); // Close the connection. 64
+mysqli_close($dbc); // Close the connection. 64
 ?>
 </div>
 </div>

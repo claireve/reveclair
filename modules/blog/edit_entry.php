@@ -62,7 +62,12 @@ include_once('includes/functions.php');
 			if (!$problem) {
 				$query = "UPDATE entries SET title='$title', entry='$entry', isPublic='$isPublic', slug = '$slug' WHERE entry_id={$_POST['id']}";
 				if ($r = mysql_query($query, $dbc)) {
-					print '<p>The quotation has been updated.</p>'; }
+					print '<p>The quotation has been updated.</p>';
+					$url = BASE_URL . 'posts/'.$slug;
+					header ("Location: $url");
+					exit;
+
+					 }
 				else { print '<p class="error">Could not update the quotation because:<br />' . mysql_error($dbc) . 
 					'.</p><p>The query being run was: ' .  $query . '</p>';
 				}

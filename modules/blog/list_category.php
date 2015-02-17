@@ -15,8 +15,8 @@ include(DB);
 <?php
 
 $q = "SELECT c.name, c.description, c.slug, c.id FROM Category c WHERE c.slug = '{$_GET['slug']}'";
-if ($result= mysql_query($q,$dbc)) {
-	$r1 = mysql_fetch_row($result);
+if ($result= mysqli_query($dbc, $q)) {
+	$r1 = mysqli_fetch_row($result);
 	print $r1[0].'</h4>';
 } ?><hr/>
 
@@ -25,9 +25,9 @@ if ($result= mysql_query($q,$dbc)) {
 ?>
 <?php
 $query = "SELECT e.title, e.entry, e.entry_id, e.slug, e.isPublic, e.date_entered,c.name FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE c.slug = '{$_GET['slug']}' ORDER BY e.date_entered DESC";
- if ($r = mysql_query($query,$dbc)) {
+ if ($r = mysqli_query($dbc, $query)) {
 
-	while ($row = mysql_fetch_array($r)) {
+	while ($row = mysqli_fetch_array($r)) {
 		$name = strtoupper($row['name']);
 		//si l'user est connecte, il a acces a tous les posts sans restriction
 		if (isset($_SESSION['valid_user'])) {
@@ -75,5 +75,5 @@ else { // Query didn't run.
 </div>
 
 <?php
-mysql_close($dbc);
+mysqli_close($dbc);
 ?>

@@ -17,6 +17,7 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 <link href="/ressources/css/sh/shCoreRDark.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="/ressources/css/main.css" type="text/css">
 <link rel="stylesheet" href="/ressources/jquery-ui-1.11.2.custom/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="/ressources/js/highlight/styles/zenburn.css">
 <script src="/ressources/js/vendor/modernizr.js"></script>
 <script src="/ressources/js/vendor/jquery.js"></script>
 <script src="/ressources/js/foundation.min.js"></script>
@@ -25,6 +26,8 @@ if (!isset($page_title)) $page_title = 'Reveclair';?>
 <script src="/ressources/jquery-ui-1.11.2.custom/datepicker-fr.js"></script>
 <script src="/ressources/js/jquery-maskedinput.1.4.0.min.js"></script>
 <script src="/ressources/js/jquery.validate.min.js"></script>
+<script src="/ressources/js/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 	<div class="sticky">

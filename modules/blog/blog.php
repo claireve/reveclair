@@ -15,9 +15,9 @@ require_once 'ressources/php_markdown_lib_1.4.1/Michelf/Markdown.inc.php';?>
 <?php
 include(DB);
 $query = 'SELECT e.title, e.entry, c.name, e.entry_id, e.isPublic, e.date_entered, e.slug FROM entries e LEFT JOIN Category c ON e.category_id = c.id ORDER BY e.date_entered DESC';
- if ($r = mysql_query($query,$dbc)) {
+ if ($r = mysqli_query($dbc, $query)) {
 
-	while ($row = mysql_fetch_array($r)) {
+	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 		$name = strtoupper($row['name']);
 		//si l'user est connecte, il a acces a tous les posts sans restriction
 		if (isset($_SESSION['valid_user'])) {
@@ -64,5 +64,5 @@ else { // Query didn't run.
 <div class="push"></div>
 </div>
 <?php
-mysql_close($dbc);
+mysqli_close($dbc);
 ?>

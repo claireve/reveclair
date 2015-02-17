@@ -1,3 +1,17 @@
+code { border-style :none !important;}
+code, kbd {
+    font-size: 1em;
+}
+code, kbd {
+    padding: 2px 4px;
+}
+code {
+    background-color: white;
+    border-radius: 4px;
+    color:#8B3FB2;
+}
+
+
 
     * {
     margin: 0;

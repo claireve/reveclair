@@ -40,6 +40,10 @@ switch ($p) {
 	$page = 'post.php';
 	$page_title = 'Nouveau post';
 	break;
+	case 'posts':
+	$page = 'blog/posts.php';
+	$page_title = 'Nouveau post';
+	break;
 	case 'login':
 	$page = 'authentication/login.php';
 	$page_title = 'Login';
