@@ -15,13 +15,13 @@ if (isset($_POST['userid']) && isset($_POST['password']))
 	}
 	$query = 'select * from authorized_users ' ."where name='$userid' "
 	." and password=sha1('$password')";
-	$result = mysql_query($query,$dbc); 
-	if (($num_rows =mysql_num_rows($result)) == 1)
+	$result = mysqli_query($dbc, $query); 
+	if (($num_rows =mysqli_num_rows($result)) == 1)
 	{
 		// if they are in the database register the user id
 		$_SESSION['valid_user'] = $userid; }
 		//$db_conn->close(); 
-		mysql_close($dbc);
+		mysqli_close($dbc);
 	}
 ?>
   <div class="row">

@@ -5,10 +5,8 @@ session_start();
 //the configuration file defines many important things so it should be included first
 require("includes/config.inc.php");
 
-
 //print '<h2>Welcome to the J.D.  ̈ Salinger Fan Club!</h2>'; print '<p>Hello, ' . $_SESSION['email'] . '!</p>';
 error_reporting(E_ALL | E_STRICT);
-
 
 define('MAIL_ADDRESS', 'contact@reveclair.fr');
 
@@ -71,7 +69,7 @@ switch ($p) {
 	break;
 	case 'show_entry':
 	$page = 'blog/show_entry.php';
-	$page_title = 'Post';
+	// $page_title = 'Post';
 	break;
 	//CATEGORIES
 	case 'add_category':
