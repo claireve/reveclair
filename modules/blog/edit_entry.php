@@ -17,8 +17,8 @@ include_once('includes/functions.php');
 
 		if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0) ) {
 			$query = "SELECT title,entry,isPublic, slug FROM entries WHERE entry_id={$_GET['id']}";
-			if ($r = mysql_query($query, $dbc)) { 
-				$row = mysql_fetch_array($r);
+			if ($r = mysqli_query($dbc, $query)) { 
+				$row = mysqli_fetch_array($r);
 			print 
 				'<form accept-charset="UTF-8" action="index.php?p=edit_entry" method="post">
 				<p><label>Contenu <textarea name="entry" rows="5" cols="30">' . htmlspecialchars($row['entry'], ENT_QUOTES, "UTF-8") .  '</textarea></label></p>
@@ -42,13 +42,13 @@ include_once('includes/functions.php');
 		}
 		else { // Couldn't get the information.
 			print '<p class="error">Could not retrieve the post because:<br />'
-			 . mysql_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
+			 . mysqli_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
 			}
 		} 
 		elseif (isset($_POST['id']) && is_numeric($_POST['id']) && ($_POST['id'] > 0)) {
 		 	$problem = FALSE;
 			if ( !empty($_POST['title']) &&  !empty($_POST['entry']) &&  !isset($_POST['isPublic']) ) {
-				$title = mysql_real_escape_string(trim(strip_tags($_POST['title'])), $dbc);
+				$title = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['title'])));
 				if (!get_magic_quotes_gpc())
 					{ $entry = addslashes($_POST['entry']); }
 				else { $entry = $_POST['entry'];}
@@ -61,21 +61,21 @@ include_once('includes/functions.php');
 			}
 			if (!$problem) {
 				$query = "UPDATE entries SET title='$title', entry='$entry', isPublic='$isPublic', slug = '$slug' WHERE entry_id={$_POST['id']}";
-				if ($r = mysql_query($query, $dbc)) {
+				if ($r = mysqli_query($dbc, $query)) {
 					print '<p>The quotation has been updated.</p>';
 					$url = BASE_URL . 'posts/'.$slug;
 					header ("Location: $url");
 					exit;
 
 					 }
-				else { print '<p class="error">Could not update the quotation because:<br />' . mysql_error($dbc) . 
+				else { print '<p class="error">Could not update the quotation because:<br />' . mysqli_error($dbc) . 
 					'.</p><p>The query being run was: ' .  $query . '</p>';
 				}
 			} // No problem!
 		} 
 		else { // No ID set.
 			print '<p class="error">This page has been accessed in error.</p>'; } // End of main IF.
-		mysql_close($dbc); 
+		mysqli_close($dbc); 
 ?>
 </div>
 </div>
