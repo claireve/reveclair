@@ -7,14 +7,17 @@ require_once 'ressources/php_markdown_lib_1.4.1/Michelf/Markdown.inc.php';?>
 include(DB);
 if (isset($_GET['slug']) && ($_GET['slug'] != null)) 
 {
-	$query = "SELECT e.title,e.entry,c.name, c.id FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE e.slug='{$_GET['slug']}'";
+	$query = "SELECT e.entry_id, e.title,e.entry,c.name, c.id FROM entries e LEFT JOIN Category c ON e.category_id = c.id WHERE e.slug='{$_GET['slug']}'";
 	if ($r = mysqli_query($dbc, $query)) { 
         $row = mysqli_fetch_array($r);
-        $text = \Michelf\Markdown::defaultTransform($row[1]);
-        print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel single-post\'><h1>'.$row[0].'</h1><p>'.$text.'</p></div>';
-        $page_title = $row[0];
+        $text = \Michelf\Markdown::defaultTransform($row[2]);
+        print '<h1 class="page-title">Blog - '.$row[3].'</h1><div class=\'panel single-post\'><h1>'.$row[1].'</h1><p>'.$text.'</p></div>';
+        $page_title = $row[1];
         if (isset($_SESSION['valid_user'])){
-            print "<a href=\"/index.php?p=edit_category&id={$row['id']}\">Modifier la catégorie</a>";
+            print "<a href=\"/index.php?p=edit_category&id={$row['id']}\">Modifier la catégorie</a>
+            <a href=\"/index.php?p=edit_entry&id={$row['entry_id']}\">Edit</a>";
+
+
         }
     }
     else echo 'bla';

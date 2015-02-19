@@ -24,11 +24,11 @@ include_once('includes/functions.php');
 			$problem = FALSE;
 			if (!empty($_POST['title']) && !empty($_POST['entry']) && !empty($_POST['category_id']) && isset($_POST['is_public'])) {
 				include(DB);
-				$title = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['title'])), $dbc);
+				$title = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['title'])));
 				if (!get_magic_quotes_gpc())
 					{ $entry = addslashes($_POST['entry']); }
 				else { $entry = $_POST['entry'];}
-				$category_id = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['category_id'])), $dbc);
+				$category_id = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['category_id'])));
 				$isPublic = $_POST['is_public'];
 				$slug = slugify($title);
 				// echo $slug;
@@ -65,9 +65,9 @@ include_once('includes/functions.php');
 			 include(DB); 
 			 //fetch nurse name
 			 $query = "SELECT id,name FROM Category;";
-			 $result = mysqli_query($query) or die(mysql_error()); //note: use mysql_error() for development only
+			 $result = mysqli_query($dbc, $query) or die(mysqli_error()); //note: use mysql_error() for development only
 			 //print results
-			 while($row = mysqli_fetch_assoc($result)) {
+			 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			 	echo '<option   value='.$row['id'].'>'.$row['name'].'</option>';
 			 }
 			 echo "</select>";
