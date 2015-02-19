@@ -12,7 +12,7 @@ if (isset($_GET['slug']) && ($_GET['slug'] != null))
         $row = mysqli_fetch_array($r);
         $text = \Michelf\Markdown::defaultTransform($row[1]);
         print '<h1 class="page-title">Blog - '.$row[2].'</h1><div class=\'panel single-post\'><h1>'.$row[0].'</h1><p>'.$text.'</p></div>';
-        define('TITLE', $row[0]);
+        $page_title = $row[0];
         if (isset($_SESSION['valid_user'])){
             print "<a href=\"/index.php?p=edit_category&id={$row['id']}\">Modifier la catégorie</a>";
         }
@@ -41,3 +41,8 @@ if (isset($_GET['slug']) && ($_GET['slug'] != null))
 </div>
 <div class="push"></div>
 </div>
+<script language="javascript">
+   $(document).ready(function() {
+        $(this).attr("title", $(".single-post h1").text());
+    });
+</script>

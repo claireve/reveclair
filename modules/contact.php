@@ -43,7 +43,7 @@
 <label class="inline">Votre nom <small>Requis</small></label>
 </div>
 <div class="large-10 columns">
-<input  required name="name" type="text" id="yourName" placeholder="Jean Dupont">
+<input  required name="name" type="text" id="yourName">
 </div>
 </div>
 <div class="row collapse">
@@ -51,7 +51,7 @@
 		<label class="inline"> Votre Email <small>Requis</small></label>
 	</div>
 	<div class="large-10 columns">
-		<input name="email"  required type="email" id="yourEmail" placeholder="jdupont@gmail.com">
+		<input name="email"  required type="email" id="yourEmail">
 	</div>
 </div>
 <div class="row collapse">
@@ -99,7 +99,7 @@
 <label>Somme de 2+2 ? (vérification anti-spam)</label>
 	</div>
 	<div class="large-10 columns">
-<input name="human" placeholder="Résultat">
+<input name="human" placeholder="Résultat en chiffre">
 	</div>
 </div>
 <input type="submit" name="submit" type="submit" value="Envoyer" class="radius button" />
@@ -134,7 +134,10 @@ $("#contactForm").validate({
 		message: {
 			required: true,
 		},
-		human: "required"
+		human: {
+    		required: true,
+    		range: [4, 4]
+		}
 	},
 	messages: {
 		name: "Merci de renseigner votre nom.",
@@ -143,7 +146,10 @@ $("#contactForm").validate({
 			email: "Merci de renseigner une adresse email valide."
 		},
 		message: "Merci de décrire le projet pour lequel vous nous contactez.",
-		human: "Merci de donner un résultat."
+		human:{
+			required:"Merci de donner un résultat.",
+			range: "Ce n'est pas le bon résultat."
+		}
 	}
 });
 $.datepicker.setDefaults($.datepicker.regional["fr"]);

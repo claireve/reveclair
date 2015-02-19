@@ -73,7 +73,11 @@ else { // Query didn't run.
 </div>
 <div class="push"></div>
 </div>
-
+<script language="javascript">
+   $(document).ready(function() {
+        $(this).attr("title", $(".page-title").text());
+    });
+</script>
 <?php
 mysqli_close($dbc);
 ?>

@@ -24,11 +24,11 @@ switch ($p) {
 	break;
 	case 'team':
 	$page = 'team.php';
-	$page_title = 'Equipe';
+	$page_title = 'Notre équipe';
 	break;
 	case 'work':
 	$page = 'work.php';
-	$page_title = 'Nos travaux';
+	$page_title = 'Notre travail';
 	break;
 	case 'method':
 	$page = 'method.php';
